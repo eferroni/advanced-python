@@ -1,11 +1,21 @@
 import calendar
-
 from fpdf import FPDF
-
 from flat import Bill
+from filestack import Client
+from decouple import config
 
 
-class PdfReport:
+class FileShare:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.client = Client(self.api_key)
+
+    def share(self, filepath):
+        share_link = self.client.upload(filepath=filepath)
+        print(share_link.url)
+
+
+class PdfReport(FileShare):
     """
     Create a pdf file that contains data abput
     the flatmates such as their names, their amount
@@ -14,6 +24,7 @@ class PdfReport:
 
     def __init__(self, filename):
         self.filename = filename
+        FileShare.__init__(self, api_key=config('FILESTACK_KEY'))
 
     def generate(self, bill: Bill):
         pdf = FPDF(orientation='P', unit='pt', format='A4')
@@ -71,4 +82,8 @@ class PdfReport:
                 ln=1
             )
 
-        pdf.output(f"files/{self.filename}")
+        filepath = f"reports/{self.filename}"
+        pdf.output(filepath)
+        self.share(filepath)
+
+
