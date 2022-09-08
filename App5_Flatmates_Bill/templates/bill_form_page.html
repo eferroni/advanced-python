@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Page</title>
+</head>
+<body>
+    <h2>Bill Form</h2>
+    <p>Fill in the form and click the button to get the results</p>
+    <form action="/results" method="post">
+        <div>
+            {{bill_form.amount.label}} {{bill_form.amount}}
+        </div>
+        <div>
+            {{bill_form.year.label}} {{bill_form.year}}
+        </div>
+        <div>
+            {{bill_form.month.label}} {{bill_form.month}}
+        </div>
+        <hr/>
+        <div>
+            <h3>First Flatemate</h3>
+            <div>
+                {{bill_form.name1.label}} {{bill_form.name1}}
+            </div>
+            <div>
+                {{bill_form.days_in_house1.label}} {{bill_form.days_in_house1}}
+            </div>
+        </div>
+        <div>
+            <h3>Second Flatemate</h3>
+            <div>
+                {{bill_form.name2.label}} {{bill_form.name2}}
+            </div>
+            <div>
+                {{bill_form.days_in_house2.label}} {{bill_form.days_in_house2}}
+            </div>
+        </div>
+        <hr/>
+        <div>
+            {{bill_form.button}}
+        </div>
+    </form>
+</body>
+</html>
