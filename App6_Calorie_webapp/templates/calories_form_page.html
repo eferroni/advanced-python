@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calories Page</title>
+    <link rel="stylesheet" href="static/main.css" />
+</head>
+<body>
+    <div class="form-body">
+        <h1>Calories Form</h1>
+        <p>Fill in the form and click the button to get the results</p>
+        <form action="/calories_form_page" method="post">
+            <div>
+                <h3>Calorie</h3>
+                <div>
+                    {{calories_form.weight.label}} {{calories_form.weight}}
+                </div>
+                <div>
+                    {{calories_form.height.label}} {{calories_form.height}}
+                </div>
+                <div>
+                    {{calories_form.age.label}} {{calories_form.age}}
+                </div>
+            </div>
+            <hr/>
+            <div>
+                <h3>Temperature</h3>
+                <div>
+                    {{calories_form.country.label}} {{calories_form.country}}
+                </div>
+                <div>
+                    {{calories_form.city.label}} {{calories_form.city}}
+                </div>
+            </div>
+            <hr/>
+            <div>
+                {{calories_form.button}}
+            </div>
+        </form>
+        {%if result %}
+        <div>
+            Temperature {{temperature}}
+        </div>
+        <div>
+            Calories: {{calories}}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
