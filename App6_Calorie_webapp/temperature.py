@@ -3,15 +3,17 @@ from selectorlib import Extractor
 
 
 class Temperature:
+
     base_url = "https://www.timeanddate.com/worldclock"
     yaml_path = 'temperature.yaml'
     headers = {
-        'user-agent': 'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'
+        'user-agent': 'Mozilla/5.0 (platform; rv:geckoversion)/'
+                      'Gecko/geckotrail Firefox/firefoxversion'
     }
 
     def __init__(self, country: str, city: str):
-        self.country = country.replace(" ","-")
-        self.city = city.replace(" ","-")
+        self.country = country.replace(" ", "-")
+        self.city = city.replace(" ", "-")
 
     def _build_url(self):
         return f"{self.base_url}/{self.country}/{self.city}"
@@ -27,6 +29,6 @@ class Temperature:
 
 
 if __name__ == '__main__':
-    temperature = Temperature(country='brazil', city='porto-alegre').get()
+    temperature = Temperature(country='brazil',
+                              city='porto-alegre').get()
     print(temperature)
-
