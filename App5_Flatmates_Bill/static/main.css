@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+    color: dimgrey;
+}
+.form-body {
+    margin: 0 100px;
+}
+body {
+    background-color: ghostwhite;
+}
+label {
+    font-weight: bold;
+    color: dimgrey;
+    font-size: 12px;
+}
+input[type=text] {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0px 8px 0px;
+}
+input[type=submit] {
+    padding: 8px 16px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+}
