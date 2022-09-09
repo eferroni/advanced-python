@@ -17,3 +17,4 @@ requests==2.25.1
 six==1.15.0
 urllib3==1.26.2
 yagmail==0.14.245
+python-decouple
