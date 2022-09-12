@@ -7,21 +7,21 @@ def home():
 
     div1 = jp.Div(a=div, classes="grid grid-cols-3 gap-4 p-4")
     in_1 = jp.Input(a=div1, placeholder="Enter first value",
-             classes="form-input")
+                    classes="form-input")
     in_2 = jp.Input(a=div1, placeholder="Enter second value",
-             classes="form-input")
+                    classes="form-input")
     d_output = jp.Div(a=div1, text="Result goes here...", classes="text-gray-600")
     jp.Div(a=div1, text="Just another div...", classes="text-gray-600")
     jp.Div(a=div1, text="Yet another div", classes="text-gray-600")
 
     div2 = jp.Div(a=div, classes="grid grid-cols-2 gap-4")
-    jp.Button(a=div2, text="Calculate", click = sum_up, in1=in_1, in2=in_2,
-              d = d_output,
+    jp.Button(a=div2, text="Calculate", click=sum_up, in1=in_1, in2=in_2,
+              d=d_output,
               classes="border border-blue-500 m-2 py-1 px-4 rounded "
                       "text-blue-600 hover:bg-red-500 hover:text-white")
     jp.Div(a=div2, text="I am a cool interactive div!", mouseenter=mouse_enter,
            mouseleave=mouse_leave,
-           classes = "hover:bg-red-500")
+           classes="hover:bg-red-500")
     return wp
 
 @jp.SetRoute("/about")
