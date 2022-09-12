@@ -1,13 +1,17 @@
 import justpy as jp
+from webapp import layout, page
 
+class Home(page.Page):
+    path = '/'
 
-class Home:
-    path = '/home'
-
-    def serve(self):
+    @classmethod
+    def serve(cls, req):
         wp = jp.QuasarPage(tailwind=True)
-        div = jp.Div(a=wp, classes="bg-gray-200 h-screen")
 
+        lay = layout.DefaultLayout(a=wp)
+        container = jp.QPageContainer(a=lay)
+
+        div = jp.Div(a=container, classes="bg-gray-200 h-screen p-4")
         jp.Div(a=div, text="Home Page", classes="text-4xl m-2")
         jp.Div(a=div, text="""
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -21,6 +25,7 @@ class Home:
         """, classes="text-lg")
 
         return wp
+
 
 
 
