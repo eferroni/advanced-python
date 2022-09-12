@@ -5,7 +5,8 @@ from webapp import layout, page
 class About(page.Page):
     path = '/about'
 
-    def serve(self):
+    @classmethod
+    def serve(cls):
         wp = jp.QuasarPage(tailwind=True)
 
         lay = layout.DefaultLayout(a=wp)
